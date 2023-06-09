@@ -6,9 +6,14 @@ meme_dict = {
             "КРИПОВЫЙ": "страшный, пугающий",
             "АГРИТЬСЯ": "злиться"
             }
+
 for i in range(6):
     word = input("Введите непонятное слово (большими буквами!): ")
     if word in meme_dict.keys():
-       print(word, meme_dict[word])
+        print(word, meme_dict[word])
     else:
-        print('такого слова нету в базе попробуйте другое слово')
+        definition = input("Введите определение для нового слова: ")
+        meme_dict[word] = definition
+        print("Новое слово и его определение успешно добавлены в словарь!")
+
+print(meme_dict)
