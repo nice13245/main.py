@@ -77,6 +77,19 @@ async def random_photo(ctx):
 
     # Отправка файла пользователю
     await ctx.send(file=discord.File(os.path.join(folder_path, random_file)))
-   
+    
+@bot.command()
+async def animal(ctx):
+    folder_path = r"C:\Users\kirll\OneDrive\Рабочий стол\proj\animals"
+    files = ['animals_meme1.jpg', 'animals_meme2.jpg', 'cats_meme1.jpg', 'dogs_meme1.jpg']
+    repetitions = [3, 3, 3, 2, 2, 1]  # Пример повторений: первые три файла будут повторяться по 3 раза, следующие два по 2 раза и последний один раз
+
+    random_files = []
+    for file, repetition in zip(files, repetitions):
+        random_files.extend([file] * repetition)
+
+    random_file = random.choice(random_files)
+
+    await ctx.send(file=discord.File(os.path.join(folder_path, random_file)))   
 
 bot.run("token")
